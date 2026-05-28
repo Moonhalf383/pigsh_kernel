@@ -1,0 +1,8 @@
+# 极端：变量自引用累加（循环 1000 次）
+var x 0
+var n 1000
+label loop
+add x x 1
+blt x n loop
+print x
+halt

@@ -1,0 +1,8 @@
+# 极端：浮点精度
+var pi 3.14159265358979
+var r 2.0
+mul area pi r
+print area
+div half pi 2
+print half
+halt

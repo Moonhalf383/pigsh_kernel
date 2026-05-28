@@ -1,0 +1,27 @@
+# 极端：测试所有分支指令
+var a 5
+var b 10
+
+beq a b equal
+print "a != b"
+
+label equal
+blt a b less
+print "skip"
+label less
+print "a < b"
+
+bgt a b greater
+print "a <= b"
+label greater
+
+ble a b less_eq
+print "skip"
+label less_eq
+print "a <= b"
+
+bge a b great_eq
+print "skip"
+label great_eq
+print "checked all"
+halt

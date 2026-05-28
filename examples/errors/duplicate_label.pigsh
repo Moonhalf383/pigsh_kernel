@@ -1,0 +1,6 @@
+# 错误：重复定义标签
+label start
+print hello
+label start
+print world
+halt

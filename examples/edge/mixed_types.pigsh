@@ -1,0 +1,9 @@
+# 极端：混合类型运算
+var i 10
+var f 3.5
+add r i f
+print r
+var s "score: "
+add r s i
+print r
+halt

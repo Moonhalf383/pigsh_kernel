@@ -1,0 +1,53 @@
+# 极端：深度嵌套调用（10 层）
+call l1
+print "done"
+halt
+
+label l1
+print "depth 1"
+call l2
+ret
+
+label l2
+print "depth 2"
+call l3
+ret
+
+label l3
+print "depth 3"
+call l4
+ret
+
+label l4
+print "depth 4"
+call l5
+ret
+
+label l5
+print "depth 5"
+call l6
+ret
+
+label l6
+print "depth 6"
+call l7
+ret
+
+label l7
+print "depth 7"
+call l8
+ret
+
+label l8
+print "depth 8"
+call l9
+ret
+
+label l9
+print "depth 9"
+call l10
+ret
+
+label l10
+print "depth 10"
+ret

@@ -1,0 +1,9 @@
+# 极端：空字符串操作
+var a ""
+var b ""
+add r a b
+print r
+var c "hello"
+add r a c
+print r
+halt

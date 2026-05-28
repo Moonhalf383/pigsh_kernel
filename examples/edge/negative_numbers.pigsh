@@ -1,0 +1,14 @@
+# 极端：负数运算
+var a -10
+var b -3
+add r a b
+print r
+sub r a b
+print r
+mul r a b
+print r
+div r a b
+print r
+neg r
+print r
+halt

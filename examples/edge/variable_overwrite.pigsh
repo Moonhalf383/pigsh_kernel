@@ -1,0 +1,12 @@
+# 极端：变量反复覆盖
+var x 1
+print x
+var x 2
+print x
+var x "hello"
+print x
+var x true
+print x
+var x 3.14
+print x
+halt

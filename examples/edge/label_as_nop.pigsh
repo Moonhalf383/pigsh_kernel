@@ -1,0 +1,6 @@
+# 极端：标签作为 nop 使用（连续标签）
+label a
+label b
+label c
+print "labels are nop"
+halt
