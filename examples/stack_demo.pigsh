@@ -1,0 +1,12 @@
+# 栈操作演示 — push/pop 实现数据交换
+var a 10
+var b 20
+print a
+print b
+push a
+push b
+pop a
+pop b
+print a
+print b
+halt

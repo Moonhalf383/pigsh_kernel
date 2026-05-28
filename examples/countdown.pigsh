@@ -1,0 +1,8 @@
+# 倒计时 — 从 10 倒数到 1
+var n 10
+label loop
+print n
+dec n
+bgt n 0 loop
+print "Liftoff!"
+halt

@@ -1,0 +1,16 @@
+# 逻辑运算演示
+var x true
+var y false
+
+and r x y
+print r
+
+or r x y
+print r
+
+xor r x y
+print r
+
+not r x
+print r
+halt

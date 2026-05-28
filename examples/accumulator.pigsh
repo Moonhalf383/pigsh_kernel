@@ -1,0 +1,10 @@
+# 累加器 — 计算 1 到 100 的和
+var total 0
+var i 1
+var n 100
+label loop
+add total total i
+inc i
+ble i n loop
+print total
+halt

@@ -1,0 +1,10 @@
+# 阶乘 — 用循环计算 10!
+var n 10
+var result 1
+var i 1
+label loop
+mul result result i
+inc i
+ble i n loop
+print result
+halt

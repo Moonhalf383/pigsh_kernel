@@ -1,0 +1,20 @@
+# 子程序调用 — 演示 call/ret 和嵌套调用
+call greet
+call farewell
+halt
+
+label greet
+print "=== Welcome ==="
+call print_line
+print "Hello from Pigsh!"
+call print_line
+ret
+
+label farewell
+print "=== Goodbye ==="
+print "See you next time!"
+ret
+
+label print_line
+print "----------------"
+ret

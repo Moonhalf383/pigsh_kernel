@@ -1,0 +1,19 @@
+# 猜数字 — 演示 input 和条件分支
+# 注意：此脚本需要交互式输入，仅用于演示语法
+# CLI 运行方式：echo "42" | go run ./cmd/pigsh examples/guess_number.pigsh
+var secret 42
+var attempts 0
+label loop
+input guess "Guess a number (1-100):"
+add attempts attempts 1
+beq guess secret correct
+blt guess secret too_low
+print "Too high!"
+jump loop
+label too_low
+print "Too low!"
+jump loop
+label correct
+print "Correct!"
+print attempts
+halt

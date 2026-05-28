@@ -1,0 +1,8 @@
+# 字符串操作演示 — 拼接和变量替换
+var first "Hello"
+var second "World"
+var greeting ""
+add greeting first " "
+add greeting greeting second
+print greeting
+halt
