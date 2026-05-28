@@ -13,7 +13,7 @@ func (vm *VM) execute(inst types.Instruction) error {
 	case "mov":
 		return vm.opMov(inst.Args, inst.Line)
 	case "print":
-		return vm.opPrint(inst.Args, inst.Line)
+		return vm.opPrint(inst.Args, inst.Quoted, inst.Line)
 	case "input":
 		return vm.opInput(inst.Args, inst.Line)
 

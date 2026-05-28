@@ -27,12 +27,22 @@ func (vm *VM) opMov(args []string, line int) error {
 }
 
 // print outputs a value.
+// Quoted strings are output directly; unquoted names are looked up as variables.
 // Usage: print <value>
-func (vm *VM) opPrint(args []string, line int) error {
+func (vm *VM) opPrint(args []string, quoted []bool, line int) error {
 	if len(args) < 1 {
 		return types.LineError(line, "usage: print <value>")
 	}
-	v := vm.resolve(args[0])
+	var v types.Value
+	if len(quoted) > 0 && quoted[0] {
+		v = types.NewString(args[0])
+	} else {
+		if val, ok := vm.vars[args[0]]; ok {
+			v = val
+		} else {
+			v = types.NewString("")
+		}
+	}
 	vm.io.Print(v.Format())
 	return nil
 }

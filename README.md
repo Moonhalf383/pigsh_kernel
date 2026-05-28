@@ -128,12 +128,13 @@ label end
 
 #### 打印 — print
 
-将变量或字面量的值输出。
+引号包裹的字符串直接输出，无引号则查找变量，未找到则输出空行。
 
 ```
-var msg "hello"
-print msg
-print 42
+print "Hello, Pigsh!"   # 输出: Hello, Pigsh!
+var x 42
+print x                  # 输出: 42
+print y                  # y 未定义，输出空行
 ```
 
 #### 输入 — input

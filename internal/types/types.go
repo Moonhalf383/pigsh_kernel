@@ -141,9 +141,10 @@ func (v Value) IsNumeric() bool {
 
 // Instruction represents a single parsed pigsh instruction.
 type Instruction struct {
-	Line int      // original source line number (1-based)
-	Op   string   // operation code: "var", "add", "print", etc.
-	Args []string // arguments as raw strings
+	Line   int      // original source line number (1-based)
+	Op     string   // operation code: "var", "add", "print", etc.
+	Args   []string // arguments as raw strings
+	Quoted []bool   // per-arg: true if originally a quoted string literal
 }
 
 // Program is the result of parsing a pigsh source.

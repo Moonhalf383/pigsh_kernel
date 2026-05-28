@@ -27,8 +27,10 @@ func Parse(tokens []lexer.Token) (*types.Program, error) {
 
 		// collect remaining tokens on this line (same line number)
 		var args []string
+		var quoted []bool
 		for i < len(tokens) && tokens[i].Line == line {
 			args = append(args, tokens[i].Literal)
+			quoted = append(quoted, tokens[i].Kind == lexer.TokenStringLit)
 			i++
 		}
 
@@ -44,17 +46,19 @@ func Parse(tokens []lexer.Token) (*types.Program, error) {
 			prog.Labels[name] = len(prog.Instructions)
 			// still emit a nop instruction so line indices stay consistent
 			prog.Instructions = append(prog.Instructions, types.Instruction{
-				Line: line,
-				Op:   "label",
-				Args: args,
+				Line:   line,
+				Op:     "label",
+				Args:   args,
+				Quoted: quoted,
 			})
 			continue
 		}
 
 		prog.Instructions = append(prog.Instructions, types.Instruction{
-			Line: line,
-			Op:   op,
-			Args: args,
+			Line:   line,
+			Op:     op,
+			Args:   args,
+			Quoted: quoted,
 		})
 	}
 

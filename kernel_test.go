@@ -33,7 +33,7 @@ func (t *testIO) Output() string {
 
 func TestHelloWorld(t *testing.T) {
 	io := &testIO{}
-	err := pigsh.Run(`print hello`, io)
+	err := pigsh.Run(`print "hello"`, io)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -72,10 +72,10 @@ func TestSubroutine(t *testing.T) {
 call say_bye
 halt
 label say_hi
-print hello
+print "hello"
 ret
 label say_bye
-print goodbye
+print "goodbye"
 ret`, io)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
@@ -171,14 +171,14 @@ func TestUndefinedVariable(t *testing.T) {
 	}
 }
 
-func TestPrintLiteral(t *testing.T) {
+func TestPrintUndefinedVar(t *testing.T) {
 	io := &testIO{}
 	err := pigsh.Run(`print undefined_var`, io)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if io.Output() != "undefined_var" {
-		t.Errorf("expected 'undefined_var', got %q", io.Output())
+	if io.Output() != "" {
+		t.Errorf("expected empty output, got %q", io.Output())
 	}
 }
 
@@ -221,12 +221,12 @@ func TestNestedCalls(t *testing.T) {
 	err := pigsh.Run(`call a
 halt
 label a
-print in_a
+print "in_a"
 call b
-print back_a
+print "back_a"
 ret
 label b
-print in_b
+print "in_b"
 ret`, io)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
@@ -240,9 +240,9 @@ ret`, io)
 func TestComments(t *testing.T) {
 	io := &testIO{}
 	err := pigsh.Run(`# this is a comment
-print hello
+print "hello"
 # another comment
-print world`, io)
+print "world"`, io)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
@@ -265,9 +265,9 @@ func TestEmptySource(t *testing.T) {
 
 func TestHalt(t *testing.T) {
 	io := &testIO{}
-	err := pigsh.Run(`print before
+	err := pigsh.Run(`print "before"
 halt
-print after`, io)
+print "after"`, io)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
