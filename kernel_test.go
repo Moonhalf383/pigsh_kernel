@@ -112,8 +112,9 @@ print name`, io)
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
-	if io.Output() != "pig" {
-		t.Errorf("expected 'pig', got %q", io.Output())
+	expected := "__INPUT_REQUIRED__who_are_you\npig"
+	if io.Output() != expected {
+		t.Errorf("expected %q, got %q", expected, io.Output())
 	}
 }
 

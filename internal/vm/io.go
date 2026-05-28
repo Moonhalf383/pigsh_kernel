@@ -48,6 +48,7 @@ func (vm *VM) opInput(args []string, line int) error {
 	if len(args) > 1 {
 		prompt = args[1]
 	}
+	vm.io.Print("__INPUT_REQUIRED__" + prompt)
 	result := vm.io.Input(prompt)
 	vm.vars[varName] = types.NewString(result)
 	return nil
