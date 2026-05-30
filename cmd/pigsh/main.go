@@ -19,9 +19,11 @@ func (c *cliIO) Print(value string) {
 }
 
 func (c *cliIO) Input(prompt string) string {
-	if prompt != "" {
-		fmt.Print(prompt + " ")
-	}
+	/*
+		if prompt != "" {
+			fmt.Print(prompt + " ")
+		}
+	*/
 	c.scanner.Scan()
 	return strings.TrimSpace(c.scanner.Text())
 }
